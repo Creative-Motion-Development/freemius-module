@@ -1,0 +1,26 @@
+{
+    "name": "freescout/freemius",
+    "description": "Freemius Integration for Freescout",
+    "authors": [
+        {
+            "name": "Artem Prihodko",
+            "email": "webtemyk@yandex.ru"
+        }
+    ],
+    "require": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Freemius\\Providers\\FreemiusServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Freemius\\": ""
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Freemius Integration",
+    "alias": "freemius",
+    "description": "Freemius Integration for Freescout",
+    "version": "1.0.0",
+    "detailsUrl": "",
+    "author": "Creative Motion",
+    "authorUrl": "https://cm-wp.com",
+    "requiredAppVersion": "1.0.2",
+    "license": "AGPL-3.0",
+    "keywords": [],
+    "active": 0,
+    "order": 0,
+    "providers": [
+        "Modules\\Freemius\\Providers\\FreemiusServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
