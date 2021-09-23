@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Entity\Freemius\Response\Models;
+namespace Modules\Freemius\Entities\Response\Models;
 
-use App\Entity\Freemius\Response\Interfaces\IResponseLicense;
+use Modules\Freemius\Entities\Response\Interfaces\IResponseLicense;
+use Modules\Freemius\Entities\Response\Models\BaseModel;
 
 /**
  * Class License
  * @package App\Entity\Freemius\Response\Models
  *
- * @author  Alexander Gorenkov <g.a.androidjc2@ya.ru>
+ * @author  Artem Prihodko <webtemyk@yandex.ru>
  */
-class License extends BaseModel implements IResponseLicense
+class License extends BaseModel
 {
     /**
      * @var string
@@ -55,64 +56,17 @@ class License extends BaseModel implements IResponseLicense
     /**
      * {@inheritDoc}
      */
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPlanId(): string
-    {
-        return $this->plan_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPricingId(): string
-    {
-        return $this->pricing_id;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSubscriptionId(): ?string
-    {
-        return $this->subscription_id;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPluginId(): string
-    {
-        return $this->plugin_id;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getUserId(): string
-    {
-        return $this->user_id;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getExpiration(): string
     {
-        return $this->expiration ?? '2030-12-31 12:21:56';
+        return $this->expiration ?? '';
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getSecretKey(): string
+    public function getRenewsIn(): string
     {
-        return $this->secret_key;
+        return $this->getBeautyDate($this->getExpiration(), 'Y-m-d');
+
     }
 }

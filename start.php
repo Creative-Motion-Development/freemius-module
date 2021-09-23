@@ -12,7 +12,9 @@
 |
 */
 
-define('FREEMIUS_MODULE_DIR', __DIR__);
+if (!defined('FREEMIUS_MODULE_DIR')) {
+    define('FREEMIUS_MODULE_DIR', __DIR__);
+}
 
 if (!app()->routesAreCached()) {
     require __DIR__.'/Http/routes.php';

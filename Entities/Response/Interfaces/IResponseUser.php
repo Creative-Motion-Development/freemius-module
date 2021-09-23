@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entity\Freemius\Response\Interfaces;
+namespace Modules\Freemius\Entities\Response\Interfaces;
 
 /**
  * Пользователь Freemius
  * @package App\Entity\Freemius\Response\Interfaces
  *
- * @author Alexander Gorenkov <g.a.androidjc2@ya.ru>
+ * @author Artem Prihodko <webtemyk@yandex.ru>
  */
 interface IResponseUser extends IResponse
 {
@@ -23,6 +23,14 @@ interface IResponseUser extends IResponse
      * @return string
      */
     public function getLastName(): ?string;
+
+    /**
+     * Дата создания пользователя
+     *
+     * @param $date_format string
+     * @return string
+     */
+    public function getCreated($date_format = ''): ?string;
 
     /**
      * E-mail пользователя

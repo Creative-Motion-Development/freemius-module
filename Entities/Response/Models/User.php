@@ -1,21 +1,29 @@
 <?php
 
-namespace App\Entity\Freemius\Response\Models;
+namespace Modules\Freemius\Entities\Response\Models;
 
-use App\Entity\Freemius\Response\Interfaces\IResponseUser;
+use App\Option;
+use Carbon\Carbon;
+use Modules\Freemius\Entities\Response\Interfaces\IResponseUser;
+use Modules\Freemius\Entities\Response\Models\BaseModel;
 
 /**
  * Class User
  * @package App\Entity\Freemius\Response\Models
  *
- * @author Alexander Gorenkov <g.a.androidjc2@ya.ru>
+ * @author Artem Prihodko <webtemyk@yandex.ru>
  */
-class User extends BaseModel implements IResponseUser
+class User extends BaseModel
 {
     /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $created;
 
     /**
      * @var string
@@ -68,6 +76,16 @@ class User extends BaseModel implements IResponseUser
     public $is_marketing_allowed;
 
     /**
+     * User constructor.
+     *
+     * @param $data array
+     */
+    public function __construct($data = [])
+    {
+        $this->load($data);
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function getId(): string
@@ -89,6 +107,14 @@ class User extends BaseModel implements IResponseUser
     public function getLastName(): ?string
     {
         return $this->last;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreated($date_format = 'Y-m-d H:i'): ?string
+    {
+        return $this->getBeautyDate($this->created, $date_format);
     }
 
     /**

@@ -1,6 +1,7 @@
 {
-    "name": "freescout/freemius",
+    "name": "Creative-Motion-Development/freemius-module",
     "description": "Freemius Integration for Freescout",
+    "type": "laravel-module",
     "authors": [
         {
             "name": "Artem Prihodko",

@@ -1,0 +1,127 @@
+#conv-layout-customer {
+    overflow: auto;
+}
+
+.customer-extra {
+    margin-top: 15px;
+}
+
+.freemius-panel {
+}
+
+.freemius-panel-heading {
+}
+
+.freemius-panel-title a, .freemius-panel-title-plugins a, .freemius-panel-title-plugins, .freemius-panel-title-sites a {
+    color: #2a3b47;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.freemius-panel-title a.collapsed:after, .freemius-panel-title-plugins a.collapsed:after, .freemius-panel-title-sites a.collapsed:before {
+    content: '\e259';
+}
+
+.freemius-panel-title a:after, .freemius-panel-title-plugins a:after, .freemius-panel-title-sites a:before {
+    content: '\e260';
+    position: relative;
+    top: 1px;
+    right: -50px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.freemius-panel-title-plugins a.collapsed:after, .freemius-panel-title-sites a.collapsed:before {
+    content: '\e252';
+}
+
+.freemius-panel-title-plugins a:after, .freemius-panel-title-sites a:before {
+    content: '\e253';
+    right: 0;
+    left: 0;
+}
+
+.freemius-panel-body {
+    padding: 5px 2px 5px 0;
+}
+
+.freemius-panel-body .glyphicon {
+    color: #616161;
+}
+
+.freemius-list, .freemius-list-plugins {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-bottom: 0;
+}
+
+.freemius-list ul.freemius-list li {
+    padding: 0 0 0 15px;
+    line-height: 1.5;
+}
+
+.freemius-list li {
+    padding: 3px 0 0 0;
+}
+
+.freemius-list-sites li {
+    padding: 0 0 0 10px;
+}
+
+.freemius-list .glyphicon {
+    padding: 3px;
+}
+
+.freemius-list-url {
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.freemius-plugin-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    margin-right: 5px;
+    vertical-align: text-top;
+}
+
+.freemius-panel-title-plugins {
+    margin-top: 5px;
+}
+
+.freemius-list-plugin-link {
+    margin-bottom: 5px;
+}
+
+.status-box {
+    margin: 0;
+    border-radius: 3px;
+    padding: 0 5px;
+}
+
+.status-blue {
+    background-color: #398ed2;
+    color: white;
+}
+
+.status-gray {
+    background-color: #a9a9a9;
+    color: white;
+}
+
+.status-green {
+    background-color: #6ac27b;
+    color: white;
+}

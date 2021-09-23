@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entity\Freemius\Response\Interfaces;
+namespace Modules\Freemius\Entities\Response\Interfaces;
 
 /**
  * Лицензия Freemius
  * @package App\Entity\Freemius\Response\Interfaces
  *
- * @author Alexander Gorenkov <g.a.androidjc2@ya.ru>
+ * @author Artem Prihodko <webtemyk@yandex.ru>
  */
 interface IResponseLicense extends IResponse
 {
