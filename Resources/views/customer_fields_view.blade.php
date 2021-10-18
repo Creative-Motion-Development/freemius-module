@@ -102,10 +102,12 @@
                                                                                     class="status-box status-green">{{$site->plan->title}}</span>
                                                                                 {{ __('plan') }}
                                                                             </li>
-                                                                            <li>
-                                                                                <strong>{{ __('Renews in:') }}</strong>
-                                                                                {{$site->license->getRenewsIn()}}
-                                                                            </li>
+                                                                            @if($license)
+                                                                                <li>
+                                                                                    <strong>{{ __('Renews in:') }}</strong>
+                                                                                    {{$license->getRenewsIn()}}
+                                                                                </li>
+                                                                            @endif
                                                                         </ul>
                                                                     </div>
                                                                 </div>
