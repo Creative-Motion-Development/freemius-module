@@ -52,9 +52,13 @@
                                                 <ul class="freemius-list freemius-list-sites">
                                                     <li class="freemius-list-plugin-link">
                                                         <span class="glyphicon glyphicon-link"></span>
-                                                        <a href="https://dashboard.freemius.com/#!/live/plugins/{{$plugin->id}}/users/{{$freemius_user->id}}/">
+                                                        <a href="https://dashboard.freemius.com/#!/live/plugins/{{$plugin->id}}/users/{{$freemius_user->id}}/"
+                                                           target="_blank">
                                                             {{ __('Go to Freemius') }}</a>
                                                     </li>
+                                                    @empty($plugin->sites)
+                                                        <li>{{ __('No active sites') }}</li>
+                                                    @endempty
                                                     @foreach ($plugin->sites as $site)
                                                         @php $license = $site->license; @endphp
                                                         <li class="freemius-list-url">
@@ -85,7 +89,7 @@
                                                                                     class="status-box status-green">${{$site->gross}}</span>
                                                                             </li>
                                                                             <li>
-                                                                                @if($site->is_premium)
+                                                                                @if($site->is_premium && $site->license)
                                                                                     <spam
                                                                                         class="status-box status-blue">
                                                                                         {{ __('Premium') }}

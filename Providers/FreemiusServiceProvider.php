@@ -177,6 +177,9 @@ class FreemiusServiceProvider extends ServiceProvider
     public function getFreemiusUser($customer): ?User
     {
         $user = $this->freemius->loadModel('User', $customer->getMeta('freemius_user', []), "Freemius user not found");
+        if (isset($user->gross)) {
+            $user->gross = round($user->gross, 2);
+        }
         return $user;
     }
 
@@ -193,15 +196,23 @@ class FreemiusServiceProvider extends ServiceProvider
         $plugins = $this->freemius->findPlugins();
         $sites = $this->freemius->findSitesByUser($user);
         $licenses = $this->freemius->findLicensesByUser($user);
-        foreach ((array) $sites as &$site) {
-            $plugin = $plugins[$site->plugin_id];
-            $plans = $this->freemius->findPlansByPlugin($site->plugin_id);
+        if ($sites) {
+            foreach ((array) $sites as &$site) {
+                $plugin = $plugins[$site->plugin_id];
+                $plans = $this->freemius->findPlansByPlugin($site->plugin_id);
 
-            $site->license = $licenses[$site->license_id];
-            $site->plan = $plans[$site->plan_id];
-            $plugin->sites = $sites;
+                $site->license = $site->license_id ? $licenses[$site->license_id] : [];
+                $site->plan = $plans[$site->plan_id];
+                $plugin->sites = $sites;
 
-            $result[$site->plugin_id] = $plugin;
+                $result[$site->plugin_id] = $plugin;
+            }
+        } else {
+            foreach ((array) $licenses as $license) {
+                $plugin = $plugins[$license->plugin_id];
+                $plugin->sites = [];
+                $result[$license->plugin_id] = $plugin;
+            }
         }
         //$helpscout = $this->freemius->getHelpScout();
 
