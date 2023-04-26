@@ -196,6 +196,13 @@ class FreemiusServiceProvider extends ServiceProvider
         $plugins = $this->freemius->findPlugins();
         $sites = $this->freemius->findSitesByUser($user);
         $licenses = $this->freemius->findLicensesByUser($user);
+        if ($licenses) {
+            foreach ((array) $licenses as $license) {
+                $plugin = $plugins[$license->plugin_id];
+                $plugin->sites = [];
+                $result[$license->plugin_id] = $plugin;
+            }
+        }
         if ($sites) {
             foreach ((array) $sites as &$site) {
                 $plugin = $plugins[$site->plugin_id];
@@ -206,12 +213,6 @@ class FreemiusServiceProvider extends ServiceProvider
                 $plugin->sites = $sites;
 
                 $result[$site->plugin_id] = $plugin;
-            }
-        } else {
-            foreach ((array) $licenses as $license) {
-                $plugin = $plugins[$license->plugin_id];
-                $plugin->sites = [];
-                $result[$license->plugin_id] = $plugin;
             }
         }
         //$helpscout = $this->freemius->getHelpScout();

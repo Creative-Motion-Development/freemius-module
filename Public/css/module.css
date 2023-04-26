@@ -62,6 +62,13 @@
     margin-bottom: 0;
 }
 
+.freemius-list-plugins hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #d6dde3;
+}
+
 .freemius-list ul.freemius-list li {
     padding: 0 0 0 15px;
     line-height: 1.5;

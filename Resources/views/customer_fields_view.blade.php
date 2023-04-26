@@ -123,6 +123,7 @@
                                         </div>
                                     </div>
                                 </li>
+                                <hr>
                             @endforeach
                         </ul>
                     </li>
